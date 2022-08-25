@@ -8,7 +8,6 @@ class Song:
         self.__genre = genre
         self.__duration = duration
 
-
     def get_name(self):
         return self.__name
 
@@ -34,4 +33,5 @@ class Song:
         self.__duration = new_duration
 
     def __str__(self):
-        return "Song " + self.get_name() + " by " + self.get_artist() + ", genre: " + self.get_genre() + ", duration: " + str(self.get_duration())
+        return "Song " + self.get_name() + " by " + self.get_artist() + ", genre: " + self.get_genre() + ", duration: " + str(
+            self.get_duration())

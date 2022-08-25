@@ -1,5 +1,6 @@
 from service.SongService import SongService
 import os
+import sys
 
 
 class UI:
@@ -38,13 +39,16 @@ class UI:
         comm = input("Press any key to go back: ")
         self.main_menu()
 
+    def exit(self):
+        sys.exit("Exiting program... ")
+
     def main_menu(self):
         print("Welcome to Tudor's music listening app! Please choose one of the following options:")
         print("1) Add a song")
         print("2) Remove a song")
         print("3) Update a song's details")
         print("4) View song list")
-        while True:
+        try:
             command = input(">")
             if command == "1":
                 self.clear()
@@ -65,6 +69,12 @@ class UI:
                 self.clear()
                 self.view_all()
                 self.go_back()
+
+            if command == "0":
+                self.exit()
+
+        except Exception as ex:
+            print('\n' + ex)
 
     def run(self):
         self.main_menu()
