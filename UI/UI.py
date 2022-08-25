@@ -1,6 +1,7 @@
 from service.SongService import SongService
 import os
 import sys
+from domain.Song import Song
 
 
 class UI:
@@ -15,10 +16,12 @@ class UI:
 
     def add(self):
         name = input("Enter song name: ")
+        self._song_service.check_existence(name)
         artist = input("Enter artist: ")
         genre = input("Enter genre: ")
         duration = int(input("Enter duration: "))
-        self._song_service.add_song(name, artist, genre, duration)
+        song = Song(name, artist, genre, duration)
+        self._song_service.add_song(song)
         print("Added " + name)
 
     def update(self):
@@ -74,7 +77,7 @@ class UI:
                 self.exit()
 
         except Exception as ex:
-            print('\n' + ex)
+            print('\n', ex)
 
     def run(self):
         self.main_menu()
