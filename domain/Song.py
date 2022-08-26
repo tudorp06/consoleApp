@@ -2,6 +2,9 @@ from datetime import datetime
 
 
 class Song:
+    """
+    Song class, which stores Song type objects, that can have attributes such as name, artist, genre and duration.
+    """
     def __init__(self, name, artist, genre, duration):
         self.__name = name
         self.__artist = artist

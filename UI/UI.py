@@ -38,6 +38,15 @@ class UI:
         self._song_service.remove_song(name)
         print("Successfully removed " + name)
 
+    def view_by_artist(self):
+        artist_name = input("Enter the name of the artist: ")
+        self._song_service.view_by_artist(artist_name)
+
+    def add_to_playlist(self):
+        song_name = input("Enter the name of the song you would like to add: ")
+        self._song_service.add_to_playlist(song_name)
+        print("Successfully added " + song_name)
+
     def go_back(self):
         comm = input("Press any key to go back: ")
         self.main_menu()
@@ -51,29 +60,38 @@ class UI:
         print("2) Remove a song")
         print("3) Update a song's details")
         print("4) View song list")
+        print("5) View songs by artist")
+        print("6) Create a playlist")
+        print("7) Add song to an existing playlist")
         try:
             command = input(">")
             if command == "1":
                 self.clear()
                 self.add()
                 self.go_back()
-
-            if command == "2":
+            elif command == "2":
                 self.clear()
                 self.remove()
                 self.go_back()
-
-            if command == "3":
+            elif command == "3":
                 self.clear()
                 self.update()
                 self.go_back()
-
-            if command == "4":
+            elif command == "4":
                 self.clear()
                 self.view_all()
                 self.go_back()
-
-            if command == "0":
+            elif command == "5":
+                self.clear()
+                self.view_by_artist()
+                self.go_back()
+            elif command == "6":
+                pass
+            elif command == "7":
+                self.clear()
+                self.add_to_playlist()
+                self.go_back()
+            elif command == "0":
                 self.exit()
 
         except Exception as ex:
