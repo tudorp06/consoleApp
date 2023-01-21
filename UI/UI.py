@@ -2,6 +2,7 @@ from service.SongService import SongService
 import os
 import sys
 from domain.Song import Song
+from domain.Playlist import Playlist
 
 
 class UI:
@@ -41,6 +42,12 @@ class UI:
     def view_by_artist(self):
         artist_name = input("Enter the name of the artist: ")
         self._song_service.view_by_artist(artist_name)
+        
+    def create_playlist(self):
+        name = input("Enter the name of your new playlist: ")
+        list = []
+        playlist = Playlist(name,list)
+        print("Succesfully created" + name + "! You can start adding songs now.")
 
     def add_to_playlist(self):
         song_name = input("Enter the name of the song you would like to add: ")
@@ -86,7 +93,9 @@ class UI:
                 self.view_by_artist()
                 self.go_back()
             elif command == "6":
-                pass
+                self.clear()
+                self.create_playlist()
+                self.go_back()
             elif command == "7":
                 self.clear()
                 self.add_to_playlist()
