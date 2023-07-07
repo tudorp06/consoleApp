@@ -38,3 +38,6 @@ class Song:
     def __str__(self):
         return "Song " + self.get_name() + " by " + self.get_artist() + ", genre: " + self.get_genre() + ", duration: " + str(
             self.get_duration())
+
+    def __repr__(self):
+        return str(self)
